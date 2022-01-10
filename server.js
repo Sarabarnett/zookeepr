@@ -1,6 +1,6 @@
 const express = require('express');
-const { animals } = require('./data/animals.json');
-const PORT = process.send.PORT || 3001;
+const { animals } = require('./data/animals');
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 
@@ -39,7 +39,7 @@ function filterByQuery(query, animalsArray) {
     filteredResults = filteredResults.filter(animal => animal.diet === query.diet);
   }
   if (query.species) {
-    filteredResults = filteredResilts.filter(animal => animal.species === query.species);
+    filteredResults = filteredResults.filter(animal => animal.species === query.species);
   }
   if (query.name) {
     filteredResults = filteredResults.filter(animal => animal.name === query.name);
